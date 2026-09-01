@@ -21,3 +21,5 @@ bun.lock
 # Google AI Studio scaffolding
 metadata.json
 scripts/
+
+.vercel
