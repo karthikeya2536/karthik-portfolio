@@ -1,0 +1,23 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+
+# Local dev artifacts
+.screenshots/
+screenshots/
+.playwright-mcp/
+
+# Editor / debug scratch
+hero-shifted-left.png
+REVIEW_REPORT.md
+bun.lock
+.claude/
+
+# Google AI Studio scaffolding
+metadata.json
+scripts/

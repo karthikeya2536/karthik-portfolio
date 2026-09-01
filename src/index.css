@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Hero font (untouched — keep the italic "systems" exactly as it is) */
+  --font-serif: 'Instrument Serif', 'Bodoni Moda', 'Playfair Display', Georgia, serif;
+  --font-display: 'Instrument Serif', 'Bodoni Moda', 'Playfair Display', serif;
+  --font-editorial: 'Bodoni Moda', 'Instrument Serif', 'Cormorant Garamond', serif;
+  --font-luxury: 'Italiana', 'Bodoni Moda', 'Cinzel', serif;
+  --font-brand: 'Syne', 'Onest', sans-serif;
+  --font-nav: 'Syne', 'Onest', sans-serif;
+  --font-mono: 'Space Mono', 'JetBrains Mono', 'Courier Prime', monospace;
+  --font-typewriter: 'Courier Prime', monospace;
+  /* Premium editorial body font: Onest (geometric, distinctive, not Inter).
+     Falls back to Plus Jakarta Sans, then system sans-serif. */
+  --font-sans: 'Onest', 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-handwriting: 'Caveat', cursive;
+
+  --color-cream-bg: #F4EFE6;
+  --color-cream-card: #EFEAE0;
+  --color-cream-border: #E2DBD0;
+  --color-cream-text: #111111;
+  --color-cream-muted: #555555;
+  --color-cream-subtle: #888888;
+
+  --color-dark-bg: #090807;
+  --color-dark-card: #141210;
+  --color-dark-border: #26231E;
+  --color-dark-border-light: #332F28;
+  --color-dark-text: #F4EFE6;
+  --color-dark-muted: #A0988C;
+
+  --color-accent-orange: #E04F2B;
+  --color-accent-orange-hover: #F06138;
+}
+
+@layer base {
+  html.lenis, html.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  
+  html.lenis, html.lenis-smooth body {
+    height: auto;
+  }
+  
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #F4EFE6;
+    color: #111111;
+    letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+  }
+
+  html.dark body, html.midnight body {
+    background-color: #090807;
+    color: #F4EFE6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0D0D0D;
+}
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E3532C;
+}
+
+/* Radial pulse animation */
+@keyframes pulse-subtle {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s ease-in-out infinite;
+}
+
+/* Print formatting for resume */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #111111 !important;
+  }
+}
+
